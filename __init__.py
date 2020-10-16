@@ -12,6 +12,7 @@ def load(app):
     multi_sb = Blueprint('multi_sb', __name__, template_folder='templates')
 
     @multi_sb.route('/scoreboard/<sb>', methods=['GET'])
+    @check_score_visibility
     def multi_scoreboard(sb=None):
         if sb == None:
             sb = 'Global'
